@@ -20,6 +20,7 @@ namespace Umbraco.Core.Models.Membership
         /// </summary>
         IUserType UserType { get; set; }
 
+        //TODO: This should be a private set 
         /// <summary>
         /// The default permission set for the user
         /// </summary>
