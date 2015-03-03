@@ -33,9 +33,7 @@ namespace Umbraco.Core.Persistence.Factories
                     IsApproved = dto.Disabled == false,
                     Email = dto.Email,
                     Language = dto.UserLanguage,
-                    DefaultToLiveEditing = dto.DefaultToLiveEditing,
-                    //NOTE: The default permission come from the user type's default permissions
-                    DefaultPermissions = _userType.Permissions
+                    DefaultToLiveEditing = dto.DefaultToLiveEditing
                 };
 
             foreach (var app in dto.User2AppDtos)
