@@ -344,7 +344,11 @@ namespace Umbraco.Core.Models
                 {
                     _allowedContentTypes = value;
                     return _allowedContentTypes;
-                }, _allowedContentTypes, AllowedContentTypesSelector);
+                }, _allowedContentTypes, AllowedContentTypesSelector,
+                    //Custom comparer for enumerable
+                    new DelegateEqualityComparer<IEnumerable<ContentTypeSort>>(
+                        (sorts, enumerable) => sorts.UnsortedSequenceEqual(enumerable),
+                        sorts => sorts.GetHashCode()));
             }
         }
 
