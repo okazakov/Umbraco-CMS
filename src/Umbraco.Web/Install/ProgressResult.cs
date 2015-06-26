@@ -1,6 +1,6 @@
 ﻿namespace Umbraco.Web.Install
 {
-    internal class ProgressResult
+    public class ProgressResult
     {
         public string Error { get; set; }
         public int Percentage { get; set; }

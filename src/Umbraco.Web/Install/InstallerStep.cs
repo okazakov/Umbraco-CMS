@@ -2,7 +2,7 @@
 
 namespace Umbraco.Web.Install
 {
-    internal abstract class InstallerStep 
+    public abstract class InstallerStep 
     {
         public abstract string Alias { get; }
         public abstract string Name { get; }

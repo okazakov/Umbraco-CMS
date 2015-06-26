@@ -8,7 +8,7 @@ using umbraco;
 
 namespace Umbraco.Web.Install
 {
-    internal class FilePermissionHelper
+    public class FilePermissionHelper
     {
         internal static readonly string[] PermissionDirs = { SystemDirectories.Css, SystemDirectories.Config, SystemDirectories.Data, SystemDirectories.Media, SystemDirectories.Masterpages, SystemDirectories.Xslt, SystemDirectories.UserControls, SystemDirectories.Preview };
         internal static readonly string[] PermissionFiles = { };

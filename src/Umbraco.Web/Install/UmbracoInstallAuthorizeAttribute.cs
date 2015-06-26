@@ -11,7 +11,7 @@ namespace Umbraco.Web.Install
 	/// Ensures authorization occurs for the installer if it has already completed. If install has not yet occured
 	/// then the authorization is successful
 	/// </summary>
-	internal class UmbracoInstallAuthorizeAttribute : AuthorizeAttribute
+	public class UmbracoInstallAuthorizeAttribute : AuthorizeAttribute
 	{
         private readonly ApplicationContext _applicationContext;
         private readonly UmbracoContext _umbracoContext;

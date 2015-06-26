@@ -27,7 +27,7 @@ namespace umbraco.cms.presentation.Trees
 	/// <summary>
 	/// An ITreeService class that returns the values found in the Query String or any dictionary
 	/// </summary>
-	internal class TreeRequestParams : ITreeService
+	public class TreeRequestParams : ITreeService
 	{
 		private TreeRequestParams() { }
 

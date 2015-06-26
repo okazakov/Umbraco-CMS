@@ -3,7 +3,7 @@ using System.Web.UI;
 
 namespace Umbraco.Web.Install
 {
-    internal static class InstallHelper
+    public static class InstallHelper
     {
 
         private static readonly InstallerStepCollection Steps = new InstallerStepCollection

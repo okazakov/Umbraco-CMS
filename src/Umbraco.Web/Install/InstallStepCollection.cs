@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 namespace Umbraco.Web.Install
 {
-    internal class InstallerStepCollection : Dictionary<string, InstallerStep>
+    public class InstallerStepCollection : Dictionary<string, InstallerStep>
     {
         public void Add(InstallerStep step){
             step.Index = this.Count;
