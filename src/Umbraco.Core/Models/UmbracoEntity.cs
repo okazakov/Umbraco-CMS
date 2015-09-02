@@ -287,14 +287,37 @@ namespace Umbraco.Core.Models
             }
         }
 
-        /// <summary>
-        /// Some entities may expose additional data that other's might not, this custom data will be available in this collection
-        /// </summary>
+        public override object DeepClone()
+        {
+            var clone = (UmbracoEntity) base.DeepClone();
+            //turn off change tracking
+            clone.DisableChangeTracking();
+            //This ensures that any value in the dictionary that is deep cloneable is cloned too
+            foreach (var key in clone.AdditionalData.Keys.ToArray())
+            {
+                var deepCloneable = clone.AdditionalData[key] as IDeepCloneable;
+                if (deepCloneable != null)
+                {
+                    clone.AdditionalData[key] = deepCloneable.DeepClone();
+                }
+            }
+            //this shouldn't really be needed since we're not tracking
+            clone.ResetDirtyProperties(false);
+            //re-enable tracking
+            clone.EnableChangeTracking();
+            return clone;
+        }
+
         public IList<UmbracoProperty> UmbracoProperties { get; set; }
-        
-        internal class UmbracoProperty : IDeepCloneable
+
+        /// <summary>
+        /// A struction that can be contained in the additional data of an UmbracoEntity representing 
+        /// a user defined property
+        /// </summary>
+        public class UmbracoProperty : IDeepCloneable
         {
             public Guid DataTypeControlId { get; set; }
+            public string PropertyEditorAlias { get; set; }
             public string Value { get; set; }
             public object DeepClone()
             {
